@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="show_forecasts">Show Forecasts</string>
+    <string name="min_temp">Min temp</string>
+    <string name="max_temp">Max temp</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="five_day_forecast">5 Day forecast for %1$s</string>
+    <string name="weather">Weather</string>
+    <string name="forecast">5 day Forecast for %s</string>
+    <string name="retry">Retry</string>
+</resources>

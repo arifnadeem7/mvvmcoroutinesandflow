@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view_weather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"
+            android:paddingBottom="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_city_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Bengaluru" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_weather_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLength="25"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_weather_celsius"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_weather_celsius"
+                    app:layout_constraintStart_toStartOf="@+id/tv_weather_celsius"
+                    app:layout_constraintTop_toBottomOf="@id/tv_city_name"
+                    tools:text="Cloudy" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_weather_celsius"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textAppearance="?attr/textAppearanceHeadline3"
+                    app:layout_constraintBottom_toTopOf="@+id/weather_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_weather_name"
+                    tools:text="28\u00B0C" />
+
+                <ImageView
+                    android:id="@+id/weather_icon"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_weather_description"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_weather_celsius"
+                    app:layout_constraintStart_toStartOf="@+id/tv_weather_celsius"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_weather_celsius" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_weather_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="@color/primaryColor"
+                    app:layout_constraintBottom_toTopOf="@+id/max_temp_label"
+                    app:layout_constraintEnd_toEndOf="@+id/min_temp_label"
+                    app:layout_constraintStart_toEndOf="@+id/min_temp_label"
+                    app:layout_constraintTop_toBottomOf="@+id/weather_icon"
+                    tools:text="Scattered clouds" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/min_temp_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/min_temp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/max_temp_label"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_min_temp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_min_temp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_min_temp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_max_temp"
+                    app:layout_constraintEnd_toEndOf="@+id/sunrise_label"
+                    app:layout_constraintStart_toStartOf="@+id/sunrise_label"
+                    tools:text="Min Temp: 21\u00B0C" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/max_temp_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/max_temp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_max_temp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/min_temp_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_weather_description" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_max_temp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toTopOf="@+id/sunset_label"
+                    app:layout_constraintEnd_toEndOf="@+id/max_temp_label"
+                    app:layout_constraintStart_toStartOf="@+id/max_temp_label"
+                    app:layout_constraintTop_toBottomOf="@+id/max_temp_label"
+                    tools:text="Max Temp: 31\u00B0C" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sunrise_label"
+                    android:layout_width="187dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:gravity="center"
+                    android:text="@string/sunrise"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/sunset_label"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_sunrise"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/sunrise_label"
+                    app:layout_constraintStart_toStartOf="@+id/sunrise_label"
+                    app:layout_constraintTop_toBottomOf="@+id/sunset_label"
+                    tools:text="Sunrise: 5:00AM" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sunset_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/sunset"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_sunrise"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_max_temp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_max_temp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_sunset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_sunrise"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/sunset_label"
+                    tools:text="Sunset: 6:31PM" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_show_forecasts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_view_weather"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/show_forecasts" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_home"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_show_forecasts"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

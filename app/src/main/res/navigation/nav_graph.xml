@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weatherFragment">
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.arif.kotlincoroutinesplusflow.features.weather.WeatherFragment"
+        android:label="WeatherFragment">
+        <action
+            android:id="@+id/action_weatherFragment_to_forecastsFragment"
+            app:destination="@id/forecastsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastsFragment"
+        android:name="com.arif.kotlincoroutinesplusflow.features.forecasts.ForecastsFragment"
+        android:label="ForecastsFragment" />
+</navigation>

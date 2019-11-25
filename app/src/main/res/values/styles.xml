@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Application theme. -->
+    <!-- Use Theme.MaterialComponents.DayNight to enable both light and dark themes -->
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <item name="toolbarStyle">@style/WeatherToolbar</item>
+        <item name="materialButtonStyle">@style/WeatherButton</item>
+        <item name="colorSecondaryVariant">@color/primaryDarkColor</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.WeatherApp.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.WeatherApp.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.WeatherApp.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.WeatherApp.Headline6</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.WeatherApp.Body2</item>
+    </style>
+
+    <style name="WeatherToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextColor">@android:color/white</item>
+    </style>
+
+    <style name="WeatherButton" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.WeatherApp.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/work_sans_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="TextAppearance.WeatherApp.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/work_sans_extrabold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+
+    <style name="TextAppearance.WeatherApp.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.WeatherApp.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/work_sans_semibold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.WeatherApp.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
