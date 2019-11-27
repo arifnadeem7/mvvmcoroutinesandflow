@@ -58,16 +58,21 @@ class ForecastsFragment : BaseFragment() {
     }
 
     private fun initViews(view: View) {
+        forecastsAdapter = ForecastsAdapter()
         view.apply {
             forecastsRecycler = findViewById(R.id.forecasts_recycler)
             pbForecasts = findViewById(R.id.pb_forecasts)
         }
-        forecastsRecycler.layoutManager = LinearLayoutManager(context)
-        val startMargin = resources.getDimension(R.dimen.margin).toInt()
-        val topMargin = resources.getDimension(R.dimen.margin_small).toInt()
-        forecastsRecycler.addItemDecoration(SpacesItemDecoration(topMargin, startMargin))
-        forecastsAdapter = ForecastsAdapter()
-        forecastsRecycler.adapter = forecastsAdapter
+        forecastsRecycler.apply {
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(
+                SpacesItemDecoration(
+                    resources.getDimension(R.dimen.margin_small).toInt(),
+                    resources.getDimension(R.dimen.margin).toInt()
+                )
+            )
+            adapter = forecastsAdapter
+        }
     }
 
     private fun handleResponse(it: Result<ListOfForecasts>) {
