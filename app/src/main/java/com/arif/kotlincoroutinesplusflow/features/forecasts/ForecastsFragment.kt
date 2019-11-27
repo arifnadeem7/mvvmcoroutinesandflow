@@ -8,7 +8,6 @@ import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arif.kotlincoroutinesplusflow.R
@@ -20,9 +19,6 @@ import com.arif.kotlincoroutinesplusflow.custom.views.IndefiniteSnackbar
 import com.arif.kotlincoroutinesplusflow.custom.views.SpacesItemDecoration
 import com.arif.kotlincoroutinesplusflow.features.home.HomeActivity
 import com.arif.kotlincoroutinesplusflow.utils.Utils
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.channels.consumeEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ForecastsFragment : BaseFragment() {
@@ -34,7 +30,6 @@ class ForecastsFragment : BaseFragment() {
     private lateinit var forecastsRecycler: RecyclerView
     private lateinit var pbForecasts: ContentLoadingProgressBar
     private val observer = Observer<ForecastResults> { handleResponse(it) }
-    private val adapterClickListenerChannel = ConflatedBroadcastChannel<Int>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,14 +52,9 @@ class ForecastsFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
-    /**
-     * Launch with lifecycleScope of this Fragment
-     */
     private fun getForecasts() {
         IndefiniteSnackbar.hide()
-        lifecycleScope.launch {
-            forecastsViewModel.getForecasts()
-        }
+        forecastsViewModel.getForecasts()
     }
 
     private fun initViews(view: View) {
@@ -76,17 +66,7 @@ class ForecastsFragment : BaseFragment() {
         val startMargin = resources.getDimension(R.dimen.margin).toInt()
         val topMargin = resources.getDimension(R.dimen.margin_small).toInt()
         forecastsRecycler.addItemDecoration(SpacesItemDecoration(topMargin, startMargin))
-        forecastsAdapter = ForecastsAdapter(adapterClickListenerChannel)
-        lifecycleScope.launch {
-            adapterClickListenerChannel.consumeEach { position ->
-                getView()?.let {
-                    showSnackBar(
-                        it,
-                        "Adapter position: $position"
-                    )
-                }
-            }
-        }
+        forecastsAdapter = ForecastsAdapter()
         forecastsRecycler.adapter = forecastsAdapter
     }
 

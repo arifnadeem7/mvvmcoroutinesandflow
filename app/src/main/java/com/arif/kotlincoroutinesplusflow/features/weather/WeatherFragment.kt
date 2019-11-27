@@ -81,14 +81,9 @@ class WeatherFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
-    /**
-     * Launch with lifecycleScope of this Fragment
-     */
     private fun getWeather() {
         IndefiniteSnackbar.hide()
-        lifecycleScope.launch {
-            weatherViewModel.getWeather()
-        }
+        weatherViewModel.getWeather()
     }
 
     /**

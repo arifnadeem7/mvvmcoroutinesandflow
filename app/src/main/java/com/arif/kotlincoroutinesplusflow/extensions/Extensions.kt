@@ -3,6 +3,7 @@ package com.arif.kotlincoroutinesplusflow.extensions
 import com.arif.kotlincoroutinesplusflow.base.Progress
 import com.arif.kotlincoroutinesplusflow.base.Result
 import com.arif.kotlincoroutinesplusflow.utils.Utils
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onCompletion
@@ -58,3 +59,9 @@ fun <T : Any> Flow<Result<T>>.applyCommonSideEffects() =
         }
         .onStart { emit(Progress(isLoading = true)) }
         .onCompletion { emit(Progress(isLoading = false)) }
+
+fun Job?.cancelIfActive() {
+    if (this?.isActive == true) {
+        cancel()
+    }
+}
