@@ -1,5 +1,8 @@
 package com.arif.kotlincoroutinesplusflow.network.response.weather
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class ApiWeather(
     val coord: Coord,
     val weather: List<Weather>,
@@ -15,11 +18,13 @@ data class ApiWeather(
     val cod: Int
 )
 
+@JsonClass(generateAdapter = true)
 data class Wind(
     val speed: Double,
     val deg: Double
 )
 
+@JsonClass(generateAdapter = true)
 data class Weather(
     val id: Int,
     val main: String,
@@ -27,11 +32,13 @@ data class Weather(
     val icon: String
 )
 
+@JsonClass(generateAdapter = true)
 data class Coord(
     val lon: Double,
     val lat: Double
 )
 
+@JsonClass(generateAdapter = true)
 data class Main(
     val temp: Double,
     val pressure: Double,
@@ -40,6 +47,7 @@ data class Main(
     val temp_max: Double
 )
 
+@JsonClass(generateAdapter = true)
 data class Sys(
     val type: Int,
     val id: Int,
@@ -49,6 +57,7 @@ data class Sys(
     val sunset: Long
 )
 
+@JsonClass(generateAdapter = true)
 data class Clouds(
     val all: Int
 )
