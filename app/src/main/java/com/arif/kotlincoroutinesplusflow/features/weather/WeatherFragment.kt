@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import coil.api.load
+import coil3.load
 import com.arif.kotlincoroutinesplusflow.R
 import com.arif.kotlincoroutinesplusflow.base.*
 import com.arif.kotlincoroutinesplusflow.custom.aliases.WeatherResult
